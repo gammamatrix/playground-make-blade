@@ -4,15 +4,15 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Feature\Playground\Make\Template\Console\Commands\About;
+namespace Tests\Feature\Playground\Make\Blade\Console\Commands\About;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Test\OrchestraTestCase;
 
 /**
- * \Tests\Feature\Playground\Make\Template\Console\Commands\About
+ * \Tests\Feature\Playground\Make\Blade\Console\Commands\About
  */
-#[CoversClass(\Playground\Make\Template\ServiceProvider::class)]
+#[CoversClass(\Playground\Make\Blade\ServiceProvider::class)]
 class CommandTest extends OrchestraTestCase
 {
     protected function getPackageProviders($app)
@@ -20,7 +20,7 @@ class CommandTest extends OrchestraTestCase
         return [
             \Playground\ServiceProvider::class,
             \Playground\Make\ServiceProvider::class,
-            \Playground\Make\Template\ServiceProvider::class,
+            \Playground\Make\Blade\ServiceProvider::class,
         ];
     }
 
@@ -31,6 +31,6 @@ class CommandTest extends OrchestraTestCase
          */
         $result = $this->artisan('about');
         $result->assertExitCode(0);
-        $result->expectsOutputToContain('Playground: Make Template');
+        $result->expectsOutputToContain('Playground: Make Blade');
     }
 }

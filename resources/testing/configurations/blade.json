@@ -1,0 +1,21 @@
+{
+    "organization": "Playground",
+    "package": "playground-acme-resource",
+    "module": "Acme",
+    "module_slug": "acme",
+    "fqdn": "",
+    "namespace": "Playground/Acme",
+    "model": "Rocket",
+    "model_fqdn": "Playground/Acme/Models/Rocket",
+    "model_column": "",
+    "model_label": "",
+    "name": "Rocket",
+    "folder": "",
+    "class": "",
+    "type": "",
+    "extends": "",
+    "implements": [],
+    "properties": [],
+    "setup": [],
+    "tests": []
+}

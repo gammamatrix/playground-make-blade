@@ -1,0 +1,10 @@
+@php ${{config}} = config('{{package}}'); @endphp
+
+@extends(sprintf('%1$s%2$s', ${{config}}['view'], 'layouts.resource.form'), [
+    'withFormInfo' => '{{package}}::{{folder}}/form-info',
+    'withFormStatus' => '{{package}}::{{folder}}/form-status',
+])
+
+@section('form-tertiary')
+@include('{{package}}::{{folder}}/form-publishing')
+@endsection

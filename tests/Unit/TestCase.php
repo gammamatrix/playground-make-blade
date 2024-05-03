@@ -4,12 +4,12 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Make\Template;
+namespace Tests\Unit\Playground\Make\Blade;
 
 use Playground\Test\OrchestraTestCase;
 
 /**
- * \Tests\Unit\Playground\Make\Template\TestCase
+ * \Tests\Unit\Playground\Make\Blade\TestCase
  */
 class TestCase extends OrchestraTestCase
 {
@@ -20,7 +20,7 @@ class TestCase extends OrchestraTestCase
         return [
             \Playground\ServiceProvider::class,
             \Playground\Make\ServiceProvider::class,
-            \Playground\Make\Template\ServiceProvider::class,
+            \Playground\Make\Blade\ServiceProvider::class,
         ];
     }
 }
