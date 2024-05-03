@@ -1,19 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-03 05:56:20</timestamp>
+  <timestamp>2024-05-03 20:07:54</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>5</methodCount>
+    <methodCount>20</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>16</totalCrap>
+    <totalCrap>81.99</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
     <method>
-      <package>Playground\Make\Template</package>
-      <className>Playground\Make\Template\ServiceProvider</className>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>13.59</crap>
+      <complexity>11</complexity>
+      <coverage>72.22</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>model_column</methodName>
+      <methodSignature>model_column(): string</methodSignature>
+      <fullMethod>model_column(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>model_label</methodName>
+      <methodSignature>model_label(): string</methodSignature>
+      <fullMethod>model_label(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>route</methodName>
+      <methodSignature>route(): string</methodSignature>
+      <fullMethod>route(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>title</methodName>
+      <methodSignature>title(): string</methodSignature>
+      <fullMethod>title(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Configuration</package>
+      <className>Playground\Make\Blade\Configuration\Blade</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>8</crap>
+      <complexity>8</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>qualifyClass</methodName>
+      <methodSignature>qualifyClass($name): string</methodSignature>
+      <fullMethod>qualifyClass($name): string</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle()</methodSignature>
+      <fullMethod>handle()</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>handle_playground_resource</methodName>
+      <methodSignature>handle_playground_resource(): void</methodSignature>
+      <fullMethod>handle_playground_resource(): void</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>resolveStubPath</methodName>
+      <methodSignature>resolveStubPath($stub): string</methodSignature>
+      <fullMethod>resolveStubPath($stub): string</fullMethod>
+      <crap>15.4</crap>
+      <complexity>7</complexity>
+      <coverage>44.44</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade</package>
+      <className>Playground\Make\Blade\ServiceProvider</className>
       <methodName>boot</methodName>
       <methodSignature>boot()</methodSignature>
       <fullMethod>boot()</fullMethod>
@@ -23,8 +188,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Make\Template</package>
-      <className>Playground\Make\Template\ServiceProvider</className>
+      <package>Playground\Make\Blade</package>
+      <className>Playground\Make\Blade\ServiceProvider</className>
       <methodName>boot_commands</methodName>
       <methodSignature>boot_commands(): array</methodSignature>
       <fullMethod>boot_commands(): array</fullMethod>
@@ -34,8 +199,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Make\Template</package>
-      <className>Playground\Make\Template\ServiceProvider</className>
+      <package>Playground\Make\Blade</package>
+      <className>Playground\Make\Blade\ServiceProvider</className>
       <methodName>register</methodName>
       <methodSignature>register(): void</methodSignature>
       <fullMethod>register(): void</fullMethod>
@@ -45,8 +210,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Make\Template</package>
-      <className>Playground\Make\Template\ServiceProvider</className>
+      <package>Playground\Make\Blade</package>
+      <className>Playground\Make\Blade\ServiceProvider</className>
       <methodName>about</methodName>
       <methodSignature>about(): void</methodSignature>
       <fullMethod>about(): void</fullMethod>
@@ -56,8 +221,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Make\Template</package>
-      <className>Playground\Make\Template\ServiceProvider</className>
+      <package>Playground\Make\Blade</package>
+      <className>Playground\Make\Blade\ServiceProvider</className>
       <methodName>version</methodName>
       <methodSignature>version(): string</methodSignature>
       <fullMethod>version(): string</fullMethod>
