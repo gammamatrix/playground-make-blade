@@ -4,10 +4,10 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Make\Template;
+namespace Tests\Unit\Playground\Make\Blade;
 
 /**
- * \Tests\Unit\Playground\Make\Template\FileTrait
+ * \Tests\Unit\Playground\Make\Blade\FileTrait
  */
 trait FileTrait
 {
@@ -33,6 +33,22 @@ trait FileTrait
         ])) {
             $file = sprintf(
                 '%1$s/resources/testing/configurations/model.backlog.json',
+                $package_base
+            );
+
+        } elseif (in_array($type, [
+            'blade',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/blade.json',
+                $package_base
+            );
+
+        } elseif (in_array($type, [
+            'blade-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/blade.crm.contact.json',
                 $package_base
             );
 

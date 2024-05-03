@@ -4,20 +4,20 @@
  */
 
 declare(strict_types=1);
-namespace Playground\Make\Template;
+namespace Playground\Make\Blade;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 
 /**
- * \Playground\Make\Template\ServiceProvider
+ * \Playground\Make\Blade\ServiceProvider
  */
 class ServiceProvider extends AuthServiceProvider
 {
     public const VERSION = '73.0.0';
 
-    public string $package = 'playground-make-template';
+    public string $package = 'playground-make-blade';
 
     /**
      * Bootstrap any package services.
@@ -65,7 +65,7 @@ class ServiceProvider extends AuthServiceProvider
     {
         $commands = [];
 
-        // $commands[] = Console\Commands\TemplateMakeCommand::class;
+        $commands[] = Console\Commands\BladeMakeCommand::class;
 
         $this->commands($commands);
 
@@ -78,8 +78,8 @@ class ServiceProvider extends AuthServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            dirname(__DIR__).'/config/playground-make-template.php',
-            'playground-make-template'
+            dirname(__DIR__).'/config/playground-make-blade.php',
+            'playground-make-blade'
         );
     }
 
@@ -92,7 +92,7 @@ class ServiceProvider extends AuthServiceProvider
 
         $version = $this->version();
 
-        AboutCommand::add('Playground: Make Template', fn () => [
+        AboutCommand::add('Playground: Make Blade', fn () => [
             '<fg=yellow;options=bold>Load</> Commands' => ! empty($load['commands']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             '<fg=yellow;options=bold>Load</> Translations' => ! empty($load['translations']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             'Package' => $this->package,

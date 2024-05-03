@@ -35,13 +35,13 @@ jobs:
         channel-id: 'C068A06PV43'
         payload: |
           {
-            "text": "CI Build Status for playground-make-template: IN PROGRESS\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "text": "CI Build Status for playground-make-blade: IN PROGRESS\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
             "blocks": [
               {
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": ":runner: CI Build Status for playground-make-template"
+                  "text": ":runner: CI Build Status for playground-make-blade"
                 }
               },
               {
@@ -138,13 +138,13 @@ jobs:
         update-ts: ${{ steps.slack.outputs.ts }}
         payload: |
           {
-            "text": "CI Build Status for playground-make-template: DONE\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "text": "CI Build Status for playground-make-blade: DONE\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
             "blocks": [
               {
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": ":white_check_mark: CI Build Status for playground-make-template"
+                  "text": ":white_check_mark: CI Build Status for playground-make-blade"
                 }
               },
               {
@@ -199,13 +199,13 @@ jobs:
         update-ts: ${{ steps.slack.outputs.ts }}
         payload: |
           {
-            "text": "CI Build Status for playground-make-template: FAILED\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "text": "CI Build Status for playground-make-blade: FAILED\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
             "blocks": [
               {
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": ":warning: CI Build Status for playground-make-template"
+                  "text": ":warning: CI Build Status for playground-make-blade"
                 }
               },
               {

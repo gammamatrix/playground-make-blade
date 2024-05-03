@@ -1,13 +1,13 @@
 {
-    "name": "gammamatrix/playground-make-template",
-    "description": "Playground: This package provides the playground:make:template command.",
+    "name": "gammamatrix/playground-make-blade",
+    "description": "Playground: This package provides the playground:make:blade command.",
     "keywords": [
         "gammamatrix",
         "laravel",
         "playground",
         "playground:make"
     ],
-    "homepage": "https://github.com/gammamatrix/playground-make-template",
+    "homepage": "https://github.com/gammamatrix/playground-make-blade",
     "license": "MIT",
     "authors": [
         {
@@ -33,13 +33,13 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Playground\\Make\\Template\\": "src/"
+            "Playground\\Make\\Blade\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Feature\\Playground\\Make\\Template\\": "tests/Feature/",
-            "Tests\\Unit\\Playground\\Make\\Template\\": "tests/Unit/"
+            "Tests\\Feature\\Playground\\Make\\Blade\\": "tests/Feature/",
+            "Tests\\Unit\\Playground\\Make\\Blade\\": "tests/Unit/"
         }
     },
     "config": {
@@ -56,7 +56,7 @@
         },
         "laravel": {
             "providers": [
-                "Playground\\Make\\Template\\ServiceProvider"
+                "Playground\\Make\\Blade\\ServiceProvider"
             ]
         }
     },

@@ -1,0 +1,65 @@
+@php ${{config}} = config('{{package}}'); @endphp
+
+@extends(${{config}}['layout'])
+{{-- @extends('playground::layouts.site') --}}
+
+@section('title', '{{title}}')
+
+@push('scripts')
+@endpush
+
+@section('head')
+@endsection
+
+@section('pre-header')
+@endsection
+
+@section('pre-nav')
+@endsection
+
+@section('sidebar-left')
+@endsection
+
+@section('sidebar-right')
+@endsection
+
+@section('pre-main')
+@endsection
+
+@section('breadcrumbs')
+<div class="container-fluid mt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('{{route}}') }}">{{title}}</a></li>
+        </ol>
+    </nav>
+</div>
+@endsection
+
+@section('main')
+@endsection
+
+@section('content')
+@endsection
+
+@section('content-end')
+@endsection
+
+@section('pre-footer')
+@endsection
+
+@section('body')
+@endsection
+
+@push('body-first')
+@endpush
+
+@push('body')
+@endpush
+
+@push('modals')
+@endpush
+
+@push('body-last')
+@endpush
