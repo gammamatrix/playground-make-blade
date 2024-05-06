@@ -23,7 +23,7 @@ class CommandTest extends TestCase
          */
         $result = $this->artisan('playground:make:blade');
         $result->assertExitCode(1);
-        $result->expectsOutputToContain( __('playground-make::generator.input.error'));
+        $result->expectsOutputToContain(__('playground-make::generator.input.error'));
     }
 
     public function test_command_skeleton(): void

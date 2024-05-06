@@ -6,7 +6,6 @@
 declare(strict_types=1);
 namespace Playground\Make\Blade\Console\Commands;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Playground\Make\Blade\Configuration\Blade as Configuration;
 use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
@@ -306,51 +305,5 @@ class BladeMakeCommand extends GeneratorCommand
         $options[] = ['config', null, InputOption::VALUE_OPTIONAL, 'The config name that will be snake case.'];
 
         return $options;
-    }
-
-    /**
-     * Resolve the fully-qualified path to the stub.
-     *
-     * @param  string  $stub
-     */
-    protected function resolveStubPath($stub): string
-    {
-        $path = '';
-        $stub_path = config('playground-make.paths.stubs');
-        if (! empty($stub_path)
-            && is_string($stub_path)
-        ) {
-            if (! is_dir($stub_path)) {
-                Log::error(__('playground-make::generator.path.invalid'), [
-                    '$stub_path' => $stub_path,
-                    '$stub' => $stub,
-                ]);
-            } else {
-                $path = sprintf(
-                    '%1$s/%2$s',
-                    // Str::of($stub_path)->finish('/')->toString(),
-                    Str::of($stub_path)->toString(),
-                    $stub
-                );
-            }
-        }
-
-        if (empty($path)) {
-            $path = sprintf(
-                '%1$s/resources/stubs/%2$s',
-                dirname(dirname(dirname(__DIR__))),
-                $stub
-            );
-        }
-
-        if (! file_exists($path)) {
-            $this->components->error(__('playground-make::generator.stub.missing', [
-                'stub_path' => is_string($stub_path) ? $stub_path : gettype($stub_path),
-                'stub' => $stub,
-                'path' => $path,
-            ]));
-        }
-
-        return $path;
     }
 }
