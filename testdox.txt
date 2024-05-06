@@ -10,6 +10,7 @@ Instance (Tests\Unit\Playground\Make\Blade\Configuration\Blade\Instance)
  [x] Instance apply without options
  [x] Folder is empty by default
  [x] Blade for model with file and skeleton
+ [x] Blade for rocket model with file and skeleton
 
 Options (Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\Options)
  [x] Command with options
