@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-03 20:10:53</timestamp>
+  <timestamp>2024-05-06 19:02:06</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>20</methodCount>
+    <methodCount>19</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>81.99</totalCrap>
+    <totalCrap>66.59</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -163,17 +163,6 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Blade\Console\Commands</package>
-      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
-      <methodName>resolveStubPath</methodName>
-      <methodSignature>resolveStubPath($stub): string</methodSignature>
-      <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>15.4</crap>
-      <complexity>7</complexity>
-      <coverage>44.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
