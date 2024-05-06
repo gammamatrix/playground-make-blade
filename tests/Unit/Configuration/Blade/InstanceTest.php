@@ -78,22 +78,11 @@ class InstanceTest extends TestCase
     public function test_blade_for_model_with_file_and_skeleton(): void
     {
         $options = $this->getResourceFileAsArray('blade-model');
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$options' => $options,
-        // ]);
 
         $instance = new Blade($options, true);
 
         $instance->apply();
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$options' => $options,
-        //     '$instance' => $instance,
-        //     // 'json_encode($instance)' => json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
-        //     // '$options' => $options,
-        // ]);
-        // echo(json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+
         $this->assertEmpty($instance->folder());
         $this->assertTrue($instance->skeleton());
 
@@ -110,5 +99,41 @@ class InstanceTest extends TestCase
         $this->assertSame([
             'Contact' => 'tmp-testing-model.crm.contact.json',
         ], $instance->models());
+    }
+
+    public function test_blade_for_rocket_model_with_file_and_skeleton(): void
+    {
+        $options = $this->getResourceFileAsArray('blade');
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        // ]);
+
+        $instance = new Blade($options, true);
+
+        $instance->apply();
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     '$instance' => $instance,
+        // ]);
+        $this->assertNotEmpty($instance->folder());
+        $this->assertTrue($instance->skeleton());
+
+        $this->assertSame('Acme', $instance->organization());
+        $this->assertSame('acme-demo-resource', $instance->package());
+        $this->assertSame('Demo', $instance->module());
+        $this->assertSame('demo', $instance->module_slug());
+        $this->assertSame('rocket', $instance->model_column());
+        $this->assertSame('Rocket', $instance->model_label());
+        $this->assertSame('Acme/Demo/Models/Rocket', $instance->model_fqdn());
+        $this->assertSame('', $instance->fqdn());
+        $this->assertSame('testing', $instance->folder());
+        $this->assertSame('Acme/Demo', $instance->namespace());
+        $this->assertSame('Rocket', $instance->name());
+        $this->assertSame('', $instance->class());
+        $this->assertSame('', $instance->type());
+        $this->assertSame([], $instance->uses());
+        $this->assertSame([], $instance->models());
     }
 }
