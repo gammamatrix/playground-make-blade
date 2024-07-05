@@ -1,2 +1,1 @@
-@php ${{config}} = config('{{package}}'); @endphp
-@extends(sprintf('%1$s%2$s', ${{config}}['view'], 'layouts.resource.detail'))
+@extends('playground::layouts.resource.detail')
