@@ -9,11 +9,11 @@
 
 ##teamcity[testStarted name='test_instance' locationHint='php_qn:///app/tests/Unit/Configuration/Blade/InstanceTest.php::\Tests\Unit\Playground\Make\Blade\Configuration\Blade\InstanceTest::test_instance' flowId='1']
 
-##teamcity[testFinished name='test_instance' duration='154' flowId='1']
+##teamcity[testFinished name='test_instance' duration='153' flowId='1']
 
 ##teamcity[testStarted name='test_instance_apply_without_options' locationHint='php_qn:///app/tests/Unit/Configuration/Blade/InstanceTest.php::\Tests\Unit\Playground\Make\Blade\Configuration\Blade\InstanceTest::test_instance_apply_without_options' flowId='1']
 
-##teamcity[testFinished name='test_instance_apply_without_options' duration='4' flowId='1']
+##teamcity[testFinished name='test_instance_apply_without_options' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_folder_is_empty_by_default' locationHint='php_qn:///app/tests/Unit/Configuration/Blade/InstanceTest.php::\Tests\Unit\Playground\Make\Blade\Configuration\Blade\InstanceTest::test_folder_is_empty_by_default' flowId='1']
 
@@ -37,7 +37,7 @@
 
 ##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed_with_code_0' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed_with_code_0' flowId='1']
 
-##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='181' flowId='1']
+##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='263' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Blade\Console\Commands\About\CommandTest' flowId='1']
 
@@ -49,7 +49,7 @@
 
 ##teamcity[testStarted name='test_command_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/CommandTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\CommandTest::test_command_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_skeleton' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_skeleton' duration='12' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\CommandTest' flowId='1']
 
@@ -65,11 +65,11 @@
 
 ##teamcity[testStarted name='test_command_make_playground_resource_blade_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_blade_with_force_and_without_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_blade_with_force_and_without_skeleton' duration='20' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_blade_with_force_and_without_skeleton' duration='23' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_resource_blade_with_force_and_with_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_blade_with_force_and_with_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_blade_with_force_and_with_skeleton' duration='22' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_blade_with_force_and_with_skeleton' duration='23' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_resource_blade_without_name_with_force_and_without_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_blade_without_name_with_force_and_without_skeleton_without_file' flowId='1']
 
@@ -81,23 +81,23 @@
 
 ##teamcity[testStarted name='test_command_make_playground_resource_blade_with_force_and_with_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_blade_with_force_and_with_skeleton_without_file' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_blade_with_force_and_with_skeleton_without_file' duration='18' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_blade_with_force_and_with_skeleton_without_file' duration='19' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_resource_index_blade_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_index_blade_with_force_and_without_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_without_skeleton' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_without_skeleton' duration='14' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_resource_index_blade_with_force_and_with_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_index_blade_with_force_and_with_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_with_skeleton' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_with_skeleton' duration='14' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_resource_index_blade_with_force_and_without_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_index_blade_with_force_and_without_skeleton_without_file' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_without_skeleton_without_file' duration='12' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_without_skeleton_without_file' duration='14' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_resource_index_blade_with_force_and_with_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/ResourceTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest::test_command_make_playground_resource_index_blade_with_force_and_with_skeleton_without_file' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_with_skeleton_without_file' duration='12' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_resource_index_blade_with_force_and_with_skeleton_without_file' duration='14' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\ResourceTest' flowId='1']
 
@@ -105,19 +105,19 @@
 
 ##teamcity[testStarted name='test_command_make_site_blade_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/SiteTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest::test_command_make_site_blade_with_force_and_without_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_site_blade_with_force_and_without_skeleton' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_make_site_blade_with_force_and_without_skeleton' duration='12' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_site_blade_with_force_and_with_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/SiteTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest::test_command_make_site_blade_with_force_and_with_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_make_site_blade_with_force_and_with_skeleton' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_make_site_blade_with_force_and_with_skeleton' duration='12' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_site_blade_with_force_and_without_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/SiteTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest::test_command_make_site_blade_with_force_and_without_skeleton_without_file' flowId='1']
 
-##teamcity[testFinished name='test_command_make_site_blade_with_force_and_without_skeleton_without_file' duration='12' flowId='1']
+##teamcity[testFinished name='test_command_make_site_blade_with_force_and_without_skeleton_without_file' duration='11' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_site_blade_with_force_and_with_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/SiteTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest::test_command_make_site_blade_with_force_and_with_skeleton_without_file' flowId='1']
 
-##teamcity[testFinished name='test_command_make_site_blade_with_force_and_with_skeleton_without_file' duration='13' flowId='1']
+##teamcity[testFinished name='test_command_make_site_blade_with_force_and_with_skeleton_without_file' duration='11' flowId='1']
 
 ##teamcity[testStarted name='test_command_make_playground_blade_with_force_and_without_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/SiteTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest::test_command_make_playground_blade_with_force_and_without_skeleton' flowId='1']
 
@@ -133,7 +133,7 @@
 
 ##teamcity[testStarted name='test_command_make_playground_blade_with_force_and_with_skeleton_without_file' locationHint='php_qn:///app/tests/Feature/Console/Commands/BladeMakeCommand/SiteTest.php::\Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest::test_command_make_playground_blade_with_force_and_with_skeleton_without_file' flowId='1']
 
-##teamcity[testFinished name='test_command_make_playground_blade_with_force_and_with_skeleton_without_file' duration='12' flowId='1']
+##teamcity[testFinished name='test_command_make_playground_blade_with_force_and_with_skeleton_without_file' duration='11' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand\SiteTest' flowId='1']
 

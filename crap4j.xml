@@ -1,16 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-07-06 02:13:12</timestamp>
+  <timestamp>2024-08-13 23:28:47</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>19</methodCount>
+    <methodCount>36</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>64</totalCrap>
+    <totalCrap>359</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_columns</methodName>
+      <methodSignature>build_index_table_columns(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_columns(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_columns_standard</methodName>
+      <methodSignature>build_index_table_columns_standard(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_columns_standard(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_columns_mobile</methodName>
+      <methodSignature>build_index_table_columns_mobile(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_columns_mobile(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_columns</methodName>
+      <methodSignature>build_index_table_column_columns(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_columns(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_flags</methodName>
+      <methodSignature>build_index_table_column_flags(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_flags(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_dates</methodName>
+      <methodSignature>build_index_table_column_dates(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_dates(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_permissions</methodName>
+      <methodSignature>build_index_table_column_permissions(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_permissions(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_status</methodName>
+      <methodSignature>build_index_table_column_status(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_status(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_matrix</methodName>
+      <methodSignature>build_index_table_column_matrix(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_matrix(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_ids</methodName>
+      <methodSignature>build_index_table_column_ids(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_ids(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildIndex</className>
+      <methodName>build_index_table_column_ui</methodName>
+      <methodSignature>build_index_table_column_ui(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_table_column_ui(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildModel</className>
+      <methodName>create_playground_resources</methodName>
+      <methodSignature>create_playground_resources(): void</methodSignature>
+      <fullMethod>create_playground_resources(): void</fullMethod>
+      <crap>5.02</crap>
+      <complexity>5</complexity>
+      <coverage>90.32</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildResource</className>
+      <methodName>build_index_blade</methodName>
+      <methodSignature>build_index_blade(): void</methodSignature>
+      <fullMethod>build_index_blade(): void</fullMethod>
+      <crap>9.38</crap>
+      <complexity>6</complexity>
+      <coverage>54.55</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildResource</className>
+      <methodName>build_index_blade_section</methodName>
+      <methodSignature>build_index_blade_section(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_index_blade_section(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildResource</className>
+      <methodName>build_sitemap_blade</methodName>
+      <methodSignature>build_sitemap_blade(): void</methodSignature>
+      <fullMethod>build_sitemap_blade(): void</fullMethod>
+      <crap>26.83</crap>
+      <complexity>12</complexity>
+      <coverage>53.13</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildResource</className>
+      <methodName>build_sitemap_blade_section</methodName>
+      <methodSignature>build_sitemap_blade_section(Playground\Make\Configuration\Model $model): void</methodSignature>
+      <fullMethod>build_sitemap_blade_section(Playground\Make\Configuration\Model $model): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildResource</className>
+      <methodName>create_sitemap_blade</methodName>
+      <methodSignature>create_sitemap_blade(): void</methodSignature>
+      <fullMethod>create_sitemap_blade(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Make\Blade\Configuration</package>
       <className>Playground\Make\Blade\Configuration\Blade</className>
@@ -94,9 +281,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>8</crap>
-      <complexity>8</complexity>
-      <coverage>100</coverage>
+      <crap>30.77</crap>
+      <complexity>19</complexity>
+      <coverage>68.06</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -113,11 +300,22 @@
     <method>
       <package>Playground\Make\Blade\Console\Commands</package>
       <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
+      <methodName>load_model_package</methodName>
+      <methodSignature>load_model_package(string $model_package): void</methodSignature>
+      <fullMethod>load_model_package(string $model_package): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Console\Commands</package>
+      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <crap>6</crap>
+      <complexity>6</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -127,19 +325,8 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Make\Blade\Console\Commands</package>
-      <className>Playground\Make\Blade\Console\Commands\BladeMakeCommand</className>
-      <methodName>handle_playground_resource</methodName>
-      <methodSignature>handle_playground_resource(): void</methodSignature>
-      <fullMethod>handle_playground_resource(): void</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
