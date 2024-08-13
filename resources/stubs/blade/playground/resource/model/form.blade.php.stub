@@ -1,10 +1,15 @@
-@php ${{config}} = config('{{package}}'); @endphp
-
-@extends(sprintf('%1$s%2$s', ${{config}}['view'], 'layouts.resource.form'), [
-    'withFormInfo' => '{{package}}::{{folder}}/form-info',
-    'withFormStatus' => '{{package}}::{{folder}}/form-status',
+@extends('{{extends}}.form', [
+    'withFormInfo' => '{{package}}::{{model_column}}/form-info',
+    'withFormStatus' => '{{package}}::{{model_column}}/form-status',
 ])
 
 @section('form-tertiary')
-@include('{{package}}::{{folder}}/form-publishing')
+@include('{{package}}::{{model_column}}/form-publishing')
+@endsection
+
+@section('form-quaternary')
+@includeWhen(
+    !empty($_method) && 'patch' === $_method,
+    '{{package}}::{{model_column}}/form-revisions'
+)
 @endsection

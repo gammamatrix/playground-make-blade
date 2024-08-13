@@ -7,9 +7,12 @@ declare(strict_types=1);
 namespace Playground\Make\Blade\Console\Commands;
 
 use Illuminate\Support\Str;
+use Playground\Make\Blade\Building;
 use Playground\Make\Blade\Configuration\Blade as Configuration;
 use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Make\Console\Commands\GeneratorCommand;
+use Playground\Make\Model\Recipe\Model as ModelRecipe;
+use Playground\Make\Package\Configuration\Package;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -19,6 +22,10 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:blade')]
 class BladeMakeCommand extends GeneratorCommand
 {
+    use Building\BuildIndex;
+    use Building\BuildModel;
+    use Building\BuildResource;
+
     /**
      * @var class-string<Configuration>
      */
@@ -48,13 +55,24 @@ class BladeMakeCommand extends GeneratorCommand
         'modelVariable' => '',
         'model_column' => '',
         'model_label' => '',
+        'model_slug' => '',
+        'model_singular' => '',
+        'model_slug_plural' => '',
         'module' => '',
         'module_slug' => '',
-        'title' => 'Welcome',
+        'title' => '',
         'sections' => '',
         'package' => '',
         'config' => '',
         'form_info_has_one' => '',
+        'index_table_columns' => '',
+        'index_table_columns_mobile' => '',
+        'index_table_columns_standard' => '',
+        'sitemap_model_access' => '',
+        'sitemap_model_map' => '',
+        'sitemap_check_models' => '',
+        'sitemap_models' => '',
+        'sitemap_title' => '',
     ];
 
     /**
@@ -80,17 +98,31 @@ class BladeMakeCommand extends GeneratorCommand
 
     protected string $path_destination_folder = 'resources/views';
 
+    protected ?Package $modelPackage = null;
+
+    protected ?ModelRecipe $recipe = null;
+
     public function prepareOptions(): void
     {
+        $this->modelPackage = null;
+        $this->recipe = null;
+
         $options = $this->options();
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$options' => $options,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         // ]);
 
+        $initModel = false;
+
         $type = $this->getConfigurationType();
+
+        $model_package = $this->hasOption('model-package') && is_string($this->option('model-package')) ? $this->option('model-package') : '';
+        if ($model_package) {
+            $this->load_model_package($model_package);
+        }
 
         if (! empty($options['route']) && is_string($options['route'])) {
             $this->c->setOptions([
@@ -118,7 +150,76 @@ class BladeMakeCommand extends GeneratorCommand
         ])) {
             $this->c->setOptions([
                 'folder' => Str::of($this->c->name())->kebab()->toString(),
+                'extends' => 'playground::layouts.resource',
             ]);
+            $this->searches['extends'] = 'playground::layouts.resource';
+            $initModel = true;
+
+        } elseif (in_array($type, [
+            'playground-resource-index',
+        ])) {
+            $this->c->setOptions([
+                'extends' => 'playground::layouts.resource',
+            ]);
+            $this->searches['extends'] = 'playground::layouts.resource';
+
+            // $title = trim(sprintf('%1$s %2$s', $this->c->module(), $this->c->name()));
+            // $module = $this->c->module();
+            // if ($module === 'CMS') {
+            //     $title = 'Content Management System';
+            // } elseif ($module === 'CRM') {
+            //     $title = 'Client Relationship Management System';
+            // } elseif ($module === 'DAM') {
+            //     $title = 'Digital Asset Management System';
+            // }
+            // $this->c->setOptions([
+            //     'title' => $title,
+            // ]);
+            // $this->searches['title'] = $title;
+
+            $this->build_index_blade();
+            $this->build_sitemap_blade();
+        }
+
+        if ($initModel) {
+            $this->initModel($this->c->skeleton());
+
+            $modelFile = $this->getModelFile();
+            if ($modelFile && $this->model?->name()) {
+                $this->c->addMappedClassTo(
+                    'models',
+                    $this->model->name(),
+                    $modelFile
+                );
+            }
+        }
+
+        if (! $this->c->model_column() && $this->model?->model_slug()) {
+            $model_slug = $this->model->model_slug();
+            $model_singular = $this->model->model_singular();
+            $model_slug_plural = $this->model->model_slug_plural();
+
+            $this->c->setOptions([
+                'model_column' => Str::of($this->model->model_slug())->replace('-', '_')->toString(),
+                'model_singular' => $model_singular,
+                'model_slug' => $model_slug,
+                'model_slug_plural' => $model_slug_plural,
+                'model_label' => $model_singular,
+            ]);
+            $this->searches['model_column'] = $this->c->model_column();
+            $this->searches['model_singular'] = $model_singular;
+            $this->searches['model_slug'] = $model_slug;
+            $this->searches['model_slug_plural'] = $model_slug_plural;
+            $this->searches['model_label'] = $model_singular;
+        }
+
+        if (in_array($type, [
+            'playground-resource',
+        ])) {
+            if ($this->model) {
+                $this->recipe = $this->model->getRecipe();
+                $this->build_index_table_columns($this->model);
+            }
         }
         // dump([
         //     '__METHOD__' => __METHOD__,
@@ -138,6 +239,15 @@ class BladeMakeCommand extends GeneratorCommand
         );
     }
 
+    public function load_model_package(string $model_package): void
+    {
+        $payload = $this->readJsonFileAsArray($model_package);
+        if (! empty($payload)) {
+            $this->modelPackage = new Package($payload);
+            // $this->modelPackage->apply();
+        }
+    }
+
     /**
      * Parse the class name and format according to the root namespace.
      *
@@ -146,21 +256,19 @@ class BladeMakeCommand extends GeneratorCommand
     protected function qualifyClass($name): string
     {
         $type = $this->getConfigurationType();
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$type' => $type,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        //     '$this->options()' => $this->options(),
+        // ]);
 
-        if (empty($this->configuration['folder'])) {
+        if (! $this->c->folder()) {
             $this->c->setOptions([
                 'folder' => Str::of($name)->kebab()->toString(),
             ]);
             $this->searches['folder'] = $this->c->folder();
-        }
-
-        if (empty($this->configuration['model_column'])) {
-            $this->c->setOptions([
-                'model_column' => Str::of($name)->snake()->replace('-', '_')->toString(),
-                'model_label' => Str::of($name)->title()->toString(),
-            ]);
-            $this->searches['model_column'] = $this->c->model_column();
-            $this->searches['model_label'] = $this->c->model_label();
         }
 
         if ($type === 'site') {
@@ -188,7 +296,7 @@ class BladeMakeCommand extends GeneratorCommand
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         //     '$this->options()' => $this->options(),
         // ]);
@@ -207,56 +315,23 @@ class BladeMakeCommand extends GeneratorCommand
         $type = $this->getConfigurationType();
 
         if ($type === 'playground-resource') {
-            $this->handle_playground_resource();
+            $this->create_playground_resources();
+        } elseif (in_array($type, [
+            'playground-resource-index',
+        ])) {
+            $this->create_sitemap_blade();
         }
 
         $this->saveConfiguration();
 
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$type' => $type,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        //     '$this->options()' => $this->options(),
+        // ]);
         return $this->return_status;
-    }
-
-    protected function handle_playground_resource(): void
-    {
-        /**
-         * @var array<string, string> $blades
-         */
-        $blades = [];
-
-        $blades['detail.blade.php'] = 'blade/playground/resource/model/detail.blade.php.stub';
-        $blades['form.blade.php'] = 'blade/playground/resource/model/form.blade.php.stub';
-        $blades['form-info.blade.php'] = 'blade/playground/resource/model/form-info.blade.php.stub';
-        $blades['form-publishing.blade.php'] = 'blade/playground/resource/model/form-publishing.blade.php.stub';
-        $blades['form-status.blade.php'] = 'blade/playground/resource/model/form-status.blade.php.stub';
-        // $blades['index'] = 'blade/playground/resource/model/index.blade.php.stub';
-
-        foreach ($blades as $blade => $source) {
-
-            // $path_stub = 'blade'.$blade;
-            $path = $this->resolveStubPath($source);
-
-            $destination = sprintf(
-                '%1$s/%2$s%3$s',
-                $this->folder(),
-                $this->c->folder() ? $this->c->folder().'/' : '',
-                $blade
-            );
-            // dd([
-            //     '__METHOD__' => __METHOD__,
-            //     '$source' => $source,
-            //     '$path' => $path,
-            //     '$destination' => $destination,
-            //     '$this->folder' => $this->folder(),
-            //     '$this->c' => $this->c,
-            // ]);
-            $stub = $this->files->get($path);
-
-            $this->search_and_replace($stub);
-
-            $full_path = $this->laravel->storagePath().$destination;
-            $this->files->put($full_path, $stub);
-
-            $this->components->info(sprintf('Blade: %s [%s] created successfully.', $blade, $full_path));
-        }
     }
 
     /**
@@ -303,6 +378,8 @@ class BladeMakeCommand extends GeneratorCommand
         $options[] = ['route', null, InputOption::VALUE_OPTIONAL, 'The base route for breadcrumbs.'];
         $options[] = ['title', null, InputOption::VALUE_OPTIONAL, 'The title of the route for breadcrumbs.'];
         $options[] = ['config', null, InputOption::VALUE_OPTIONAL, 'The config name that will be snake case.'];
+        $options[] = ['model-package', null, InputOption::VALUE_OPTIONAL, 'The model package to use for loading migrations'];
+        $options[] = ['revision', null, InputOption::VALUE_NONE, 'Enable revisions for the '.strtolower($this->type).' type'];
 
         return $options;
     }

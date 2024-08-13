@@ -1,0 +1,31 @@
+<?php
+$user = \Illuminate\Support\Facades\Auth::user();
+{{sitemap_model_access}}
+
+if ({{sitemap_check_models}}) {
+    return;
+}
+?>
+<div class="card my-1">
+    <div class="card-body">
+
+        <h2>{{title}}</h2>
+
+        <div class="row">
+
+            <div class="col-sm-6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                    {{sitemap_title}}
+                    <small class="text-muted">{{sitemap_models}}</small>
+                    </div>
+                    <ul class="list-group list-group-flush">
+{{sitemap_model_map}}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<fieldset class="mb-3">
+
+    <legend>Revisions</legend>
+
+    <div class="row">
+        <div class="col">
+
+            @if (config('{{package}}.revisions.optional'))
+
+                <div class="form-check form-check-inline">
+                    <input type="hidden" name="active" value="0">
+                    <input class="form-check-input" type="checkbox" id="revision" name="revision" value="1"
+                        {{ config('{{package}}.revisions.{{model_slug_plural}}') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="revision">Revision</label>
+                    <p class="form-text text-muted">
+                        @if (config('{{package}}.revisions.{{model_slug_plural}}'))
+                            {{ __('{{package}}::revisions.{{model_slug_plural}}.enabled') }}
+                        @else
+                            {{ __('{{package}}::revisions.optional') }}
+                        @endif
+                    </p>
+                </div>
+            @else
+                <p class="form-text text-muted">
+                    @if (config('{{package}}.revisions.{{model_slug_plural}}'))
+                        {{ __('{{package}}::revisions.{{model_slug_plural}}.enabled') }}
+                    @else
+                        {{ __('{{package}}::revisions.{{model_slug_plural}}.disabled') }}
+                    @endif
+                </p>
+            @endif
+
+        </div>
+    </div>
+
+</fieldset>
