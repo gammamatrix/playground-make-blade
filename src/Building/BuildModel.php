@@ -32,7 +32,11 @@ trait BuildModel
         $blades = [];
 
         $blades['detail.blade.php'] = 'blade/playground/resource/model/detail.blade.php.stub';
-        $blades['form.blade.php'] = 'blade/playground/resource/model/form.blade.php.stub';
+        if ($revision) {
+            $blades['form-with-revision.blade.php'] = 'blade/playground/resource/model/form.blade.php.stub';
+        } else {
+            $blades['form.blade.php'] = 'blade/playground/resource/model/form.blade.php.stub';
+        }
         $blades['form-info.blade.php'] = 'blade/playground/resource/model/form-info.blade.php.stub';
         $blades['form-publishing.blade.php'] = 'blade/playground/resource/model/form-publishing.blade.php.stub';
         $blades['form-status.blade.php'] = 'blade/playground/resource/model/form-status.blade.php.stub';

@@ -6,3 +6,10 @@
 @section('form-tertiary')
 @include('{{package}}::{{model_column}}/form-publishing')
 @endsection
+
+@section('form-quaternary')
+@includeWhen(
+    !empty($_method) && 'patch' === $_method,
+    '{{package}}::{{model_column}}/form-revisions'
+)
+@endsection
