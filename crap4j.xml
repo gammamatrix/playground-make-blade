@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-13 23:28:47</timestamp>
+  <timestamp>2024-08-16 05:46:54</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>36</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>359</totalCrap>
+    <totalCrap>359.03</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -138,9 +138,9 @@
       <methodName>create_playground_resources</methodName>
       <methodSignature>create_playground_resources(): void</methodSignature>
       <fullMethod>create_playground_resources(): void</fullMethod>
-      <crap>5.02</crap>
+      <crap>5.05</crap>
       <complexity>5</complexity>
-      <coverage>90.32</coverage>
+      <coverage>87.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
