@@ -159,9 +159,9 @@ class BladeMakeCommand extends GeneratorCommand
             'playground-resource-index',
         ])) {
             $this->c->setOptions([
-                'extends' => 'playground::layouts.resource',
+                'extends' => 'playground::layouts.resource.layout',
             ]);
-            $this->searches['extends'] = 'playground::layouts.resource';
+            $this->searches['extends'] = 'playground::layouts.resource.layout';
 
             // $title = trim(sprintf('%1$s %2$s', $this->c->module(), $this->c->name()));
             // $module = $this->c->module();
@@ -224,6 +224,7 @@ class BladeMakeCommand extends GeneratorCommand
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,
+        //     '$this->searches' => $this->searches,
         //     '$this->c->type()' => $this->c->type(),
         //     '$this->c->name()' => $this->c->name(),
         //     '$this->c->folder()' => $this->c->folder(),

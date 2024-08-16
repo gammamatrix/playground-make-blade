@@ -17,15 +17,15 @@ trait BuildModel
     {
         $revision = $this->hasOption('revision') && $this->option('revision');
 
-        dump([
-            '__METHOD__' => __METHOD__,
-            '$revision' => $revision,
-            '$this->c->type()' => $this->c->type(),
-            '$this->folder' => $this->folder(),
-            // '$this->c' => $this->c,
-            // '$this->model' => $this->model,
-            '$this->options()' => $this->options(),
-        ]);
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$revision' => $revision,
+        //     '$this->c->type()' => $this->c->type(),
+        //     '$this->folder' => $this->folder(),
+        //     // '$this->c' => $this->c,
+        //     // '$this->model' => $this->model,
+        //     '$this->options()' => $this->options(),
+        // ]);
         /**
          * @var array<string, string> $blades
          */
