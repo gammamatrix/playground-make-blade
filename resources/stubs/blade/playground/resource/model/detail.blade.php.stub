@@ -1,1 +1,25 @@
-@extends('playground::layouts.resource.detail')
+<?php
+
+$routePatch = !$data ? '' : route(sprintf('%1$s.patch', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->getAttributeValue('id')]);
+$routeShow = !$data ? '' : route(sprintf('%1$s.show', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->getAttributeValue('id')]);
+$modelLabel = $meta['info']['model_label'];
+$modelColumn = 'project_id';
+$modulelLabel = $meta['info']['module_label'];
+
+$flags = [{{detail_flags}}];
+?>
+@extends('playground::layouts.resource.detail', [
+    'withInfo' => false,
+    'withAccordion' => true,
+    'withCard' => false,
+])
+
+@section('detail-information-flags')
+@include('playground::layouts.resource.detail-flags')
+@endsection
+
+@section('detail-card-body-header'){{detail_card_header}}
+@endsection
+
+@section('detail-accordion-body-header'){{detail_accordion_header}}
+@endsection

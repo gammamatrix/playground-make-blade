@@ -6,3 +6,6 @@
 @section('form-tertiary')
 @include('{{package}}::{{model_column}}/form-publishing')
 @endsection
+
+@section('fieldset-content'){{fieldset_content}}
+@endsection

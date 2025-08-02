@@ -60,13 +60,6 @@
                     <label class="form-check-label" for="status_problem">Problem</label>
                 </div>
             </div>
-            {{-- <div class="col">
-                <div class="form-check form-check-inline">
-                    <input type="hidden" name="sitemap" value="0">
-                    <input class="form-check-input" type="checkbox" id="status_sitemap" name="sitemap" value="1" {{old('sitemap') ? 'checked' : ''}}>
-                    <label class="form-check-label" for="status_sitemap">Sitemap</label>
-                </div>
-            </div> --}}
             <div class="col">
                 <div class="form-check form-check-inline">
                     <input type="hidden" name="suspended" value="0">
@@ -87,7 +80,6 @@
     <fieldset>
 
         <legend class="text-warning">Access</legend>
-
 
         <div class="row">
             <div class="col">
@@ -120,6 +112,5 @@
             </div>
         </div>
     </fieldset>
-
-
+{{fieldset_flags}}
 </fieldset>

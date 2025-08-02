@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Playground\Make\Blade\Building;
 
+use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model;
 
 /**
@@ -17,13 +18,16 @@ trait BuildModel
     {
         $revision = $this->hasOption('revision') && $this->option('revision');
 
-        // dump([
+        $this->build_detail_flags($this->model);
+        $this->build_detail_manage_ids($this->model);
+
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$revision' => $revision,
         //     '$this->c->type()' => $this->c->type(),
         //     '$this->folder' => $this->folder(),
-        //     // '$this->c' => $this->c,
-        //     // '$this->model' => $this->model,
+        //     '$this->c' => $this->c,
+        //     '$this->model' => $this->model,
         //     '$this->options()' => $this->options(),
         // ]);
         /**
@@ -38,8 +42,8 @@ trait BuildModel
             $blades['form.blade.php'] = 'blade/playground/resource/model/form.blade.php.stub';
         }
         $blades['form-info.blade.php'] = 'blade/playground/resource/model/form-info.blade.php.stub';
-        $blades['form-publishing.blade.php'] = 'blade/playground/resource/model/form-publishing.blade.php.stub';
-        $blades['form-status.blade.php'] = 'blade/playground/resource/model/form-status.blade.php.stub';
+        $blades['form-dates.blade.php'] = 'blade/playground/resource/model/form-dates.blade.php.stub';
+        $blades['form-flags.blade.php'] = 'blade/playground/resource/model/form-flags.blade.php.stub';
         // $blades['index'] = 'blade/playground/resource/model/index.blade.php.stub';
 
         if ($revision) {

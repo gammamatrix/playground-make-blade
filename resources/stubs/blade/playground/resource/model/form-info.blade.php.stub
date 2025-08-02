@@ -22,8 +22,21 @@
 
     <x-playground::forms.column column="{{model_column}}_type" label="{{model_label}} Type" :rules="['maxlength' => 255]" />
 
-    @if (!empty($parents))
-    <x-playground::forms.column-select column="parent_id" key="label" label="Parent {{model_label}}" :records="$parents"/>
+{{ form_info_columns }}
+
+    @php
+    if ('patch' === $_method) {
+        $parents = {{model_fqdn}}::where('id', '!=', $data->id)->get();
+    } else {
+        $parents = {{model_fqdn}}::isNotClosed()->isActive()->get();
+    }
+    @endphp
+    @if ($parents->isEmpty())
+    <input type="hidden" name="parent_id" value="" />
+    @else
+    <x-playground::forms.column-select column="parent_id" key="label" label="{{model_label}}" :records="$parents->toArray()"/>
     @endif
+
+
 {{ form_info_has_one }}
 </fieldset>

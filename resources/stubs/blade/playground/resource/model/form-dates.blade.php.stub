@@ -1,0 +1,71 @@
+<fieldset class="mb-3">
+
+    <legend>Dates</legend>
+
+    <fieldset class="mb-3">
+
+        <legend>Planning</legend>
+
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="planned_start_at" label="Planned Start"
+                    described="The date must be after yesterday and before next year."
+                    :rules="['min' => 'yesterday', 'max' => 'next year']"
+                />
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="planned_end_at" label="Planned End"/>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="mb-3">
+
+        <legend>Publishing</legend>
+
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="embargo_at" label="Embargo Until"/>
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="published_at" label="Published"/>
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="released_at" label="Released"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="postponed_at" label="Postponed"/>
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="resolved_at" label="Resolved"/>
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="resumed_at" label="Resumed"/>
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="suspended_at" label="Suspended"/>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="mb-3">
+
+        <legend>Timer</legend>
+
+        <div class="row">
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="timer_start_at" label="timer_start_at"/>
+            </div>
+            <div class="col">
+                <x-playground::forms.column type="datetime-local" column="timer_end_at" label="timer_end_at"/>
+            </div>
+        </div>
+
+    </fieldset>
+{{fieldset_dates}}
+</fieldset>

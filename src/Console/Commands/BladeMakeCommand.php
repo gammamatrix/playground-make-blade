@@ -23,6 +23,8 @@ use Symfony\Component\Console\Input\InputOption;
 class BladeMakeCommand extends GeneratorCommand
 {
     use Building\BuildIndex;
+    use Building\BuildDetail;
+    use Building\BuildForm;
     use Building\BuildModel;
     use Building\BuildResource;
 
@@ -54,6 +56,7 @@ class BladeMakeCommand extends GeneratorCommand
         'model' => '',
         'modelVariable' => '',
         'model_column' => '',
+        'model_fqdn' => '',
         'model_label' => '',
         'model_slug' => '',
         'model_singular' => '',
@@ -64,7 +67,16 @@ class BladeMakeCommand extends GeneratorCommand
         'sections' => '',
         'package' => '',
         'config' => '',
+        'fieldset_content' => '',
+        'fieldset_dates' => '',
+        'fieldset_flags' => '',
+        'form_info_columns' => '',
         'form_info_has_one' => '',
+        'detail_accordion_body' => '',
+        'detail_accordion_header' => '',
+        'detail_card_body' => '',
+        'detail_card_header' => '',
+        'detail_flags' => '',
         'index_table_columns' => '',
         'index_table_columns_mobile' => '',
         'index_table_columns_standard' => '',
@@ -206,6 +218,7 @@ class BladeMakeCommand extends GeneratorCommand
                 'model_slug_plural' => $model_slug_plural,
                 'model_label' => $model_singular,
             ]);
+            $this->searches['model_fqdn'] = $this->parseClassInput($this->model->fqdn());
             $this->searches['model_column'] = $this->c->model_column();
             $this->searches['model_singular'] = $model_singular;
             $this->searches['model_slug'] = $model_slug;
