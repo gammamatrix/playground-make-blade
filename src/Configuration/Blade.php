@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Blade\Configuration;
 
 use Playground\Make\Configuration\PrimaryConfiguration;
@@ -52,7 +54,7 @@ class Blade extends PrimaryConfiguration
     ];
 
     /**
-     * @param array<string, mixed> $options
+     * @param  array<string, mixed>  $options
      */
     public function setOptions(array $options = []): self
     {
@@ -94,7 +96,7 @@ class Blade extends PrimaryConfiguration
     }
 
     /**
-     * @param array<string, mixed> $options
+     * @param  array<string, mixed>  $options
      */
     public function addModels(array $options): self
     {

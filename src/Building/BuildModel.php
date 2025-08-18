@@ -1,12 +1,13 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Blade\Building;
 
-use Illuminate\Support\Str;
 use Playground\Make\Configuration\Model;
 
 /**
@@ -16,6 +17,10 @@ trait BuildModel
 {
     protected function create_playground_resources(): void
     {
+        if (empty($this->model)) {
+            return;
+        }
+
         $revision = $this->hasOption('revision') && $this->option('revision');
 
         $this->build_detail_flags($this->model);

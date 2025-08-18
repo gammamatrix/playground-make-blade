@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Blade\Console\Commands;
 
 use Illuminate\Support\Str;
@@ -22,9 +24,9 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:blade')]
 class BladeMakeCommand extends GeneratorCommand
 {
-    use Building\BuildIndex;
     use Building\BuildDetail;
     use Building\BuildForm;
+    use Building\BuildIndex;
     use Building\BuildModel;
     use Building\BuildResource;
 

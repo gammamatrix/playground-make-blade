@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Make\Blade\Building;
 
 use Illuminate\Support\Str;
@@ -49,7 +51,7 @@ trait BuildDetail
 
         $flags = $model->create()?->flags() ?? [];
 
-        if (!empty($flags)) {
+        if (! empty($flags)) {
             $this->searches['detail_flags'] .= PHP_EOL;
         }
 
@@ -86,8 +88,8 @@ PHP_CODE;
 
         foreach ($ids as $column) {
 
-            if (!in_array($column->type(), [
-                'uuid'
+            if (! in_array($column->type(), [
+                'uuid',
             ]) || in_array($column->column(), [
                 'created_by_id',
                 'modified_by_id',

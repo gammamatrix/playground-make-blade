@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Unit\Playground\Make\Blade\Configuration\Blade;
 
 use PHPUnit\Framework\Attributes\CoversClass;
-use Tests\Unit\Playground\Make\Blade\TestCase;
 use Playground\Make\Blade\Configuration\Blade;
+use Tests\Unit\Playground\Make\Blade\TestCase;
 
 /**
  * \Tests\Unit\Playground\Make\Blade\Configuration\Blade\InstanceTest

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
