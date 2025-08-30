@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-18 15:07:31</timestamp>
+  <timestamp>2025-08-30 18:41:31</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>38</methodCount>
+    <methodCount>39</methodCount>
     <crapMethodCount>1</crapMethodCount>
     <crapLoad>7</crapLoad>
-    <totalCrap>499.88</totalCrap>
-    <crapMethodPercent>2.63</crapMethodPercent>
+    <totalCrap>512.15</totalCrap>
+    <crapMethodPercent>2.56</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -160,9 +160,20 @@
       <methodName>create_playground_resources</methodName>
       <methodSignature>create_playground_resources(): void</methodSignature>
       <fullMethod>create_playground_resources(): void</fullMethod>
-      <crap>46.84</crap>
+      <crap>47.11</crap>
       <complexity>7</complexity>
-      <coverage>6.67</coverage>
+      <coverage>6.45</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Make\Blade\Building</package>
+      <className>Playground\Make\Blade\Building\BuildModel</className>
+      <methodName>build_detail_manage_blades</methodName>
+      <methodSignature>build_detail_manage_blades(): void</methodSignature>
+      <fullMethod>build_detail_manage_blades(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
