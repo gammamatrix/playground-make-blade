@@ -1,10 +1,10 @@
 @extends('{{extends}}.form', [
     'withFormInfo' => '{{package}}::{{model_column}}/form-info',
-    'withFormStatus' => '{{package}}::{{model_column}}/form-status',
+    'withFormStatus' => '{{package}}::{{model_column}}/form-flags',
 ])
 
 @section('form-tertiary')
-@include('{{package}}::{{model_column}}/form-publishing')
+@include('{{package}}::{{model_column}}/form-dates')
 @endsection
 
 @section('form-quaternary')
