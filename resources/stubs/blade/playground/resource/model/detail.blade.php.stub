@@ -3,7 +3,7 @@
 $routePatch = !$data ? '' : route(sprintf('%1$s.patch', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->getAttributeValue('id')]);
 $routeShow = !$data ? '' : route(sprintf('%1$s.show', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->getAttributeValue('id')]);
 $modelLabel = $meta['info']['model_label'];
-$modelColumn = 'project_id';
+$modelColumn = sprintf('%1$s_id', $meta['info']['model_slug']);
 $modulelLabel = $meta['info']['module_label'];
 
 $flags = [{{detail_flags}}];
