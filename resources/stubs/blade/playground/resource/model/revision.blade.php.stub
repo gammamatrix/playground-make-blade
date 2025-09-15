@@ -1,1 +1,1 @@
-@extends('playground::layouts.resource.detail')
+@extends("playground::layouts.resource.detail")

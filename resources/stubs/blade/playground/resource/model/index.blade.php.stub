@@ -1,4 +1,15 @@
 <?php
+$packageInfo =
+    ! empty($meta) && is_array($meta) && ! empty($meta["info"])
+        ? $meta["info"]
+        : null;
+if (! ($packageInfo instanceof \Playground\PackageInfo)) {
+    throw new RuntimeException(
+        "Expecting package info for resources/views/{{model_slug}}/index.blade.php",
+        500,
+    );
+}
+
 $sort = empty($sort) || ! is_array($sort) ? [] : $sort;
 
 $filters = empty($filters) || ! is_array($filters) ? [] : $filters;
@@ -32,6 +43,9 @@ if ($viewableColumns === 'all') {
 
 ?>
 
-@extends('{{extends}}.index', [
-    'withTableColumns' => $columns,
-])
+@extends(
+    "playground::layouts.resource.index",
+    [
+        "withTableColumns" => $columns,
+    ]
+)

@@ -76,13 +76,13 @@ PHP_CODE;
         }
     }
 
-    protected function build_detail_manage_ids(Model $model): void
+    protected function build_detail_manage_ids(?Model $model = null): void
     {
         $this->searches['detail_accordion_header'] = '';
 
         $package = $this->c->package();
 
-        $ids = $model->create()?->ids() ?? [];
+        $ids = $model?->create()?->ids() ?? [];
 
         $detail_accordion_header = '';
 

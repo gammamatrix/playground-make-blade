@@ -12,6 +12,8 @@ use Playground\Make\Configuration\Model;
 
 /**
  * \Playground\Make\Blade\Building\BuildModel
+ *
+ * @mixin \Playground\Make\Blade\Console\Commands\BladeMakeCommand
  */
 trait BuildModel
 {
@@ -48,8 +50,8 @@ trait BuildModel
             $blades['form.blade.php'] = 'blade/playground/resource/model/form.blade.php.stub';
         }
         $blades['form-info.blade.php'] = 'blade/playground/resource/model/form-info.blade.php.stub';
-        $blades['form-dates.blade.php'] = 'blade/playground/resource/model/form-dates.blade.php.stub';
-        $blades['form-flags.blade.php'] = 'blade/playground/resource/model/form-flags.blade.php.stub';
+        //        $blades['form-dates.blade.php'] = 'blade/playground/resource/model/form-dates.blade.php.stub';
+        //        $blades['form-flags.blade.php'] = 'blade/playground/resource/model/form-flags.blade.php.stub';
         // $blades['index'] = 'blade/playground/resource/model/index.blade.php.stub';
 
         if ($revision) {
@@ -66,7 +68,7 @@ trait BuildModel
             $destination = sprintf(
                 '%1$s/%2$s%3$s',
                 $this->folder(),
-                $this->c->folder() ? $this->c->folder() . '/' : '',
+                $this->c->folder() ? $this->c->folder().'/' : '',
                 $blade
             );
             // dd([
@@ -81,7 +83,7 @@ trait BuildModel
 
             $this->search_and_replace($stub);
 
-            $full_path = $this->laravel->storagePath() . $destination;
+            $full_path = $this->laravel->storagePath().$destination;
             $this->files->put($full_path, $stub);
 
             $this->components->info(sprintf('Blade: %s [%s] created successfully.', $blade, $full_path));
@@ -93,12 +95,12 @@ trait BuildModel
         // TODO this does not need to be build on every model
 
         $pathToIo = $this->laravel->storagePath().$this->getPackageFolder().'/resources/views/io';
-//        dd([
-//            '__METHOD__' => __METHOD__,
-//            '$pathToIo' => $pathToIo,
-//            '$this->folder' => $this->folder(),
-//        ]);
-        if (!is_dir($pathToIo)) {
+        //        dd([
+        //            '__METHOD__' => __METHOD__,
+        //            '$pathToIo' => $pathToIo,
+        //            '$this->folder' => $this->folder(),
+        //        ]);
+        if (! is_dir($pathToIo)) {
             mkdir($pathToIo);
         }
 
@@ -121,19 +123,19 @@ trait BuildModel
                 $this->folder(),
                 $blade
             );
-//             dd([
-//                 '__METHOD__' => __METHOD__,
-//                 '$source' => $source,
-//                 '$path' => $path,
-//                 '$destination' => $destination,
-//                 '$this->folder' => $this->folder(),
-//                 '$this->c' => $this->c,
-//             ]);
+            //             dd([
+            //                 '__METHOD__' => __METHOD__,
+            //                 '$source' => $source,
+            //                 '$path' => $path,
+            //                 '$destination' => $destination,
+            //                 '$this->folder' => $this->folder(),
+            //                 '$this->c' => $this->c,
+            //             ]);
             $stub = $this->files->get($path);
 
             $this->search_and_replace($stub);
 
-            $full_path = $this->laravel->storagePath() . $destination;
+            $full_path = $this->laravel->storagePath().$destination;
             $this->files->put($full_path, $stub);
 
             $this->components->info(sprintf('Blade: %s [%s] created successfully.', $blade, $full_path));

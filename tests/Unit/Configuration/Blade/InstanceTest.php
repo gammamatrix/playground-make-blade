@@ -22,6 +22,7 @@ class InstanceTest extends TestCase
     {
         $instance = new Blade;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(Blade::class, $instance);
     }
 
@@ -70,8 +71,6 @@ class InstanceTest extends TestCase
     public function test_folder_is_empty_by_default(): void
     {
         $instance = new Blade;
-
-        $this->assertInstanceOf(Blade::class, $instance);
 
         $this->assertIsString($instance->folder());
         $this->assertEmpty($instance->folder());

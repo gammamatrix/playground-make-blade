@@ -1,4 +1,15 @@
 <?php
+$packageInfo =
+    ! empty($meta) && is_array($meta) && ! empty($meta["info"])
+        ? $meta["info"]
+        : null;
+if (! ($packageInfo instanceof \Playground\PackageInfo)) {
+    throw new RuntimeException(
+        "Expecting package info for resources/views/page/revisions.blade.php",
+        500,
+    );
+}
+
 $sort = empty($sort) || ! is_array($sort) ? [] : $sort;
 
 $filters = empty($filters) || ! is_array($filters) ? [] : $filters;
@@ -14,17 +25,17 @@ $columnsMobile = [
 $columnsStandard = [
 {{index_table_columns_standard}}];
 
-$viewableColumns = ! empty($validated['columns'])
-    && is_string($validated['columns'])
-    && in_array($validated['columns'], [
-        'all',
-        'standard',
-        'mobile',
-    ]) ? $validated['columns'] : 'standard';
+$viewableColumns = ! empty($validated["columns"])
+    && is_string($validated["columns"])
+    && in_array($validated["columns"], [
+        "all",
+        "standard",
+        "mobile",
+    ]) ? $validated["columns"] : "standard";
 
-if ($viewableColumns === 'all') {
+if ($viewableColumns === "all") {
     $columns = $columnsViewable;
-} elseif ($viewableColumns === 'mobile') {
+} elseif ($viewableColumns === "mobile") {
     $columns = Illuminate\Support\Arr::only($columnsViewable, $columnsMobile);
 } else {
     $columns = Illuminate\Support\Arr::only($columnsViewable, $columnsStandard);
@@ -32,6 +43,9 @@ if ($viewableColumns === 'all') {
 
 ?>
 
-@extends('{{extends}}.index', [
-    'withTableColumns' => $columns,
-])
+@extends(
+    "playground::layouts.resource.index",
+    [
+        "withTableColumns" => $columns,
+    ]
+)

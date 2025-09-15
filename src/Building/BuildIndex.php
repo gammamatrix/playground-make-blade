@@ -164,7 +164,7 @@ PHP_CODE;
 
             if ($model_attribute === $column->column()) {
                 $linkType = "'id'";
-                $linkRoute = "sprintf('%1\$s.show', \$meta['info']['model_route'])";
+                $linkRoute = "sprintf('%1\$s.show', \$packageInfo->model_route())";
             }
             // dump([
             //     '__METHOD__' => __METHOD__,

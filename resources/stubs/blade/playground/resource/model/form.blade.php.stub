@@ -1,11 +1,7 @@
-@extends('{{extends}}.form', [
-    'withFormInfo' => '{{package}}::{{model_column}}/form-info',
-    'withFormStatus' => '{{package}}::{{model_column}}/form-flags',
+@extends("{{extends}}.form", [
+    "withFormInfo" => "{{package}}::{{model_column}}/form-info",
+        "withFormAccess" => true,
 ])
 
-@section('form-tertiary')
-@include('{{package}}::{{model_column}}/form-dates')
-@endsection
-
-@section('fieldset-content'){{fieldset_content}}
+@section("fieldset-content"){{fieldset_content}}
 @endsection

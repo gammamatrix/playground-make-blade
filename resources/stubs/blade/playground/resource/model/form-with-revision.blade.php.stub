@@ -1,15 +1,14 @@
-@extends('{{extends}}.form', [
-    'withFormInfo' => '{{package}}::{{model_column}}/form-info',
-    'withFormStatus' => '{{package}}::{{model_column}}/form-flags',
-])
-
-@section('form-tertiary')
-@include('{{package}}::{{model_column}}/form-dates')
-@endsection
-
-@section('form-quaternary')
-@includeWhen(
-    !empty($_method) && 'patch' === $_method,
-    '{{package}}::{{model_column}}/form-revisions'
+@extends(
+    "playground::layouts.resource.form",
+    [
+        "withFormInfo" => "{{package}}::{{model_column}}/form-info",
+        "withFormAccess" => true,
+    ]
 )
+
+@section("form-quaternary")
+    @includeWhen(
+        ! empty($_method) && "patch" === $_method,
+        "{{package}}::{{model_column}}/form-revisions"
+    )
 @endsection
