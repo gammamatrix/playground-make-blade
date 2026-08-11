@@ -86,13 +86,15 @@ trait BuildResource
 
         $model_label_lower_plural = Str::of($model_label_plural)->lower()->toString();
         $model_snake_plural = Str::of($model_label_plural)->snake()->toString();
+        $model_slug = $model->model_slug();
+        $model_slug_plural = $model->model_slug();
 
         // $model_slug = $model->model_slug();
         // if (!$model_slug) {
         //     $model_slug = Str::of($model->name())->kebab()->toString();
         // }
 
-        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model_snake_plural);
+        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model_slug_plural);
 
         $this->searches['sections'] .= <<<PHP_CODE
 

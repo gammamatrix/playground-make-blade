@@ -1,7 +1,7 @@
 @extends(
     "playground::layouts.resource.form",
     [
-        "withFormInfo" => "{{package}}::{{model_column}}/form-info",
+        "withFormInfo" => "{{package}}::{{model_slug}}/form-info",
         "withFormAccess" => true,
     ]
 )
@@ -9,6 +9,6 @@
 @section("form-quaternary")
     @includeWhen(
         ! empty($_method) && "patch" === $_method,
-        "{{package}}::{{model_column}}/form-revisions"
+        "{{package}}::{{model_slug}}/form-revisions"
     )
 @endsection

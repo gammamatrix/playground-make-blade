@@ -1,5 +1,5 @@
 @extends("{{extends}}.form", [
-    "withFormInfo" => "{{package}}::{{model_column}}/form-info",
+    "withFormInfo" => "{{package}}::{{model_slug}}/form-info",
         "withFormAccess" => true,
 ])
 

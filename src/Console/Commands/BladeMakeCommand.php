@@ -63,6 +63,8 @@ class BladeMakeCommand extends GeneratorCommand
         'model_slug' => '',
         'model_singular' => '',
         'model_slug_plural' => '',
+        'model_variable' => '',
+        'model_variable_plural' => '',
         'module' => '',
         'module_slug' => '',
         'title' => '',
@@ -212,6 +214,8 @@ class BladeMakeCommand extends GeneratorCommand
             $model_slug = $this->model->model_slug();
             $model_singular = $this->model->model_singular();
             $model_slug_plural = $this->model->model_slug_plural();
+            $model_variable = Str::of($this->model->model_singular())->snake()->toString();
+            $model_variable_plural = Str::of($this->model->model_plural())->snake()->toString();
 
             $this->c->setOptions([
                 'model_column' => Str::of($this->model->model_slug())->replace('-', '_')->toString(),
@@ -219,6 +223,8 @@ class BladeMakeCommand extends GeneratorCommand
                 'model_slug' => $model_slug,
                 'model_slug_plural' => $model_slug_plural,
                 'model_label' => $model_singular,
+                'model_variable' => $model_variable,
+                'model_variable_plural' => $model_variable_plural,
             ]);
             $this->searches['model_fqdn'] = $this->parseClassInput($this->model->fqdn());
             $this->searches['model_column'] = $this->c->model_column();
@@ -226,6 +232,8 @@ class BladeMakeCommand extends GeneratorCommand
             $this->searches['model_slug'] = $model_slug;
             $this->searches['model_slug_plural'] = $model_slug_plural;
             $this->searches['model_label'] = $model_singular;
+            $this->searches['model_variable'] = $model_variable;
+            $this->searches['model_variable_plural'] = $model_variable_plural;
         }
 
         if (in_array($type, [

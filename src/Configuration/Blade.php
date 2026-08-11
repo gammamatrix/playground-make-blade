@@ -19,6 +19,12 @@ class Blade extends PrimaryConfiguration
 
     protected string $model_label = '';
 
+    protected string $model_slug = '';
+
+    protected string $model_variable = '';
+
+    protected string $model_variable_plural = '';
+
     /**
      * @var array<string, string>
      */
@@ -47,6 +53,9 @@ class Blade extends PrimaryConfiguration
         'model' => '',
         'model_column' => '',
         'model_label' => '',
+        'model_slug' => '',
+        'model_variable' => '',
+        'model_variable_plural' => '',
         'type' => '',
         'route' => '',
         'title' => '',
@@ -70,6 +79,24 @@ class Blade extends PrimaryConfiguration
             && is_string($options['model_label'])
         ) {
             $this->model_label = $options['model_label'];
+        }
+
+        if (! empty($options['model_slug'])
+            && is_string($options['model_slug'])
+        ) {
+            $this->model_slug = $options['model_slug'];
+        }
+
+        if (! empty($options['model_variable'])
+            && is_string($options['model_variable'])
+        ) {
+            $this->model_variable = $options['model_variable'];
+        }
+
+        if (! empty($options['model_variable_plural'])
+            && is_string($options['model_variable_plural'])
+        ) {
+            $this->model_variable_plural = $options['model_variable_plural'];
         }
 
         if (! empty($options['route'])
@@ -119,6 +146,21 @@ class Blade extends PrimaryConfiguration
     public function model_label(): string
     {
         return $this->model_label;
+    }
+
+    public function model_slug(): string
+    {
+        return $this->model_slug;
+    }
+
+    public function model_variable(): string
+    {
+        return $this->model_variable;
+    }
+
+    public function model_variable_plural(): string
+    {
+        return $this->model_variable_plural;
     }
 
     public function route(): string
