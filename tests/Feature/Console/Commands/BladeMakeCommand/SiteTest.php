@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Playground\Make\Blade\Console\Commands\BladeMakeCommand;
 
+use Illuminate\Testing\PendingCommand;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Make\Blade\Console\Commands\BladeMakeCommand;
 use Tests\Feature\Playground\Make\Blade\TestCase;
@@ -26,7 +27,7 @@ class SiteTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -40,7 +41,7 @@ class SiteTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -51,7 +52,7 @@ class SiteTest extends TestCase
         $command = 'playground:make:blade testing --force --type site';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -62,7 +63,7 @@ class SiteTest extends TestCase
         $command = 'playground:make:blade testing --skeleton --force --type site';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -76,7 +77,7 @@ class SiteTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -90,7 +91,7 @@ class SiteTest extends TestCase
         );
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -101,7 +102,7 @@ class SiteTest extends TestCase
         $command = 'playground:make:blade testing --force --type playground';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);
@@ -112,7 +113,7 @@ class SiteTest extends TestCase
         $command = 'playground:make:blade testing --skeleton --force --type playground';
 
         /**
-         * @var \Illuminate\Testing\PendingCommand $result
+         * @var PendingCommand $result
          */
         $result = $this->artisan($command);
         $result->assertExitCode(0);

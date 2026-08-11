@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Playground\Make\Blade\Building;
 
+use Playground\Make\Blade\Console\Commands\BladeMakeCommand;
 use Playground\Make\Configuration\Model;
 
 /**
  * \Playground\Make\Blade\Building\BuildModel
  *
- * @mixin \Playground\Make\Blade\Console\Commands\BladeMakeCommand
+ * @mixin BladeMakeCommand
  */
 trait BuildModel
 {

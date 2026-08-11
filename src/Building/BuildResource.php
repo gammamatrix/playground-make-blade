@@ -87,7 +87,7 @@ trait BuildResource
         $model_label_lower_plural = Str::of($model_label_plural)->lower()->toString();
         $model_snake_plural = Str::of($model_label_plural)->snake()->toString();
         $model_slug = $model->model_slug();
-        $model_slug_plural = $model->model_slug();
+        $model_slug_plural = $model->model_slug_plural();
 
         // $model_slug = $model->model_slug();
         // if (!$model_slug) {
@@ -203,24 +203,15 @@ PHP_CODE;
         $package = $this->c->package();
 
         $model_label_plural = $model->model_plural();
-        if (! $model_label_plural) {
-            $model_label_plural = Str::of($model->name())->kebab()->replace('-', ' ')->plural()->toString();
-        }
-
-        $model_studly_plural = Str::of($model_label_plural)->studly()->toString();
-        $model_snake_plural = Str::of($model_label_plural)->snake()->toString();
-        $model_label_lower_plural = Str::of($model_label_plural)->lower()->toString();
-
         $model_slug = $model->model_slug();
-        if (! $model_slug) {
-            $model_slug = Str::of($model->name())->kebab()->toString();
-        }
+        $model_slug_plural = $model->model_slug_plural();
+        $if_model_variable_plural = Str::of($model->model_plural())->replace(' ', '')->studly()->toString();
 
-        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model_snake_plural);
+        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model_slug_plural);
 
         $this->searches['sitemap_model_access'] .= <<<PHP_CODE
 
-\$view{$model_studly_plural} = \Playground\Auth\Facades\Can::access(\$user, [
+\$view{$if_model_variable_plural} = \Playground\Auth\Facades\Can::access(\$user, [
     'allow' => false,
     'any' => true,
     'privilege' => '{$package}:{$model_slug}:viewAny',
@@ -231,7 +222,7 @@ PHP_CODE;
 
         $this->searches['sitemap_model_map'] .= <<<PHP_CODE
 
-                        @if (\$view{$model_label_plural})
+                        @if (\$view{$if_model_variable_plural})
                         <a href="{{ route('{$model_route}') }}" class="list-group-item list-group-item-action">
                             $model_label_plural
                         </a>
