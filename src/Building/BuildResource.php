@@ -59,6 +59,16 @@ trait BuildResource
                     continue;
                 }
 
+                if (in_array($model->type(), [
+                    'model-linked',
+                    'model-tagged',
+                    'playground-model-linked',
+                    'playground-model-tagged',
+                ])) {
+                    // Linked and tagged models do not have routes that can be mapped
+                    continue;
+                }
+
                 // $params_controller['--model'] = $model->name();
                 // $params_controller['name'] = Str::of($model->name())->studly()->finish('Controller')->toString();
                 // $params_controller['--model-file'] = $file;
@@ -151,6 +161,16 @@ PHP_CODE;
 
                 if ($model->revision()) {
                     // Revisions are handled by the base model.
+                    continue;
+                }
+
+                if (in_array($model->type(), [
+                    'model-linked',
+                    'model-tagged',
+                    'playground-model-linked',
+                    'playground-model-tagged',
+                ])) {
+                    // Linked and tagged models do not have routes that can be mapped
                     continue;
                 }
 
