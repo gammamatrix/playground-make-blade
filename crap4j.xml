@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-08-11 16:23:00</timestamp>
+  <timestamp>2026-09-07 18:10:11</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>42</methodCount>
     <crapMethodCount>1</crapMethodCount>
     <crapLoad>7</crapLoad>
-    <totalCrap>517.93</totalCrap>
+    <totalCrap>546.58</totalCrap>
     <crapMethodPercent>2.38</crapMethodPercent>
   </stats>
   <methods>
@@ -182,9 +182,9 @@
       <methodName>build_index_blade</methodName>
       <methodSignature>build_index_blade(): void</methodSignature>
       <fullMethod>build_index_blade(): void</fullMethod>
-      <crap>9.38</crap>
-      <complexity>6</complexity>
-      <coverage>54.55</coverage>
+      <crap>21.52</crap>
+      <complexity>7</complexity>
+      <coverage>33.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -204,9 +204,9 @@
       <methodName>build_sitemap_blade</methodName>
       <methodSignature>build_sitemap_blade(): void</methodSignature>
       <fullMethod>build_sitemap_blade(): void</fullMethod>
-      <crap>26.83</crap>
-      <complexity>12</complexity>
-      <coverage>53.13</coverage>
+      <crap>43.34</crap>
+      <complexity>13</complexity>
+      <coverage>43.59</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
