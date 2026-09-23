@@ -89,32 +89,20 @@ trait BuildResource
 
     protected function build_index_blade_section(Model $model): void
     {
-        $model_label_plural = $model->model_plural();
-        if (! $model_label_plural) {
-            $model_label_plural = Str::of($model->name())->kebab()->replace('-', ' ')->plural()->toString();
-        }
+        $model_labels = $model->model_labels();
+        $model_lowers = $model->model_lowers();
 
-        $model_label_lower_plural = Str::of($model_label_plural)->lower()->toString();
-        $model_snake_plural = Str::of($model_label_plural)->snake()->toString();
-        $model_slug = $model->model_slug();
-        $model_slug_plural = $model->model_slug_plural();
-
-        // $model_slug = $model->model_slug();
-        // if (!$model_slug) {
-        //     $model_slug = Str::of($model->name())->kebab()->toString();
-        // }
-
-        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model_slug_plural);
+        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model->model_slugs());
 
         $this->searches['sections'] .= <<<PHP_CODE
 
                         <div class="col-sm-6">
                             <div class="card m-1">
                                 <div class="card-body">
-                                    <h5 class="card-title">$model_label_plural</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Manage $model_label_lower_plural</h6>
+                                    <h5 class="card-title">$model_labels</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Manage $model_lowers</h6>
                                     <p class="card-text"></p>
-                                    <a class="card-link" href="{{ route('$model_route') }}">View $model_label_plural</a>
+                                    <a class="card-link" href="{{ route('$model_route') }}">View $model_labels</a>
                                 </div>
                             </div>
                         </div>
@@ -174,11 +162,11 @@ PHP_CODE;
                     continue;
                 }
 
-                if ($model->model_plural()) {
-                    $models_list[] = strtolower($model->model_plural());
+                if ($model->model_lowers()) {
+                    $models_list[] = $model->model_lowers();
                 }
-                if ($model->model_slug_plural()) {
-                    $models_check_list[] = Str::of($model->model_plural())->studly()->start('!$view')->toString();
+                if ($model->model_studly()) {
+                    $models_check_list[] = Str::of($model->model_studlies())->start('!$view')->toString();
                 }
                 // $params_controller['--model'] = $model->name();
                 // $params_controller['name'] = Str::of($model->name())->studly()->finish('Controller')->toString();
@@ -222,12 +210,11 @@ PHP_CODE;
 
         $package = $this->c->package();
 
-        $model_label_plural = $model->model_plural();
+        $model_labels = $model->model_labels();
         $model_slug = $model->model_slug();
-        $model_slug_plural = $model->model_slug_plural();
-        $if_model_variable_plural = Str::of($model->model_plural())->replace(' ', '')->studly()->toString();
+        $if_model_variable_plural = $model->model_studlies();
 
-        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model_slug_plural);
+        $model_route = sprintf('%1$s.%2$s', $this->c->route(), $model->model_slugs());
 
         $this->searches['sitemap_model_access'] .= <<<PHP_CODE
 
@@ -244,7 +231,7 @@ PHP_CODE;
 
                         @if (\$view{$if_model_variable_plural})
                         <a href="{{ route('{$model_route}') }}" class="list-group-item list-group-item-action">
-                            $model_label_plural
+                            $model_labels
                         </a>
                         @endif
 

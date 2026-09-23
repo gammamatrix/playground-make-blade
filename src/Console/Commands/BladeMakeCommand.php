@@ -11,6 +11,7 @@ namespace Playground\Make\Blade\Console\Commands;
 use Illuminate\Support\Str;
 use Playground\Make\Blade\Building;
 use Playground\Make\Blade\Configuration\Blade as Configuration;
+use Playground\Make\Building\Concerns\BuildModel;
 use Playground\Make\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Make\Console\Commands\GeneratorCommand;
 use Playground\Make\Model\Recipe\Model as ModelRecipe;
@@ -29,6 +30,7 @@ class BladeMakeCommand extends GeneratorCommand
     use Building\BuildIndex;
     use Building\BuildModel;
     use Building\BuildResource;
+    use BuildModel;
 
     /**
      * @var class-string<Configuration>
@@ -133,7 +135,7 @@ class BladeMakeCommand extends GeneratorCommand
 
         $initModel = false;
 
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
 
         $model_package = $this->hasOption('model-package') && is_string($this->option('model-package')) ? $this->option('model-package') : '';
         if ($model_package) {
@@ -208,17 +210,18 @@ class BladeMakeCommand extends GeneratorCommand
                     $modelFile
                 );
             }
+            $this->buildClass_model($this->model?->name() ?? '');
         }
 
         if (! $this->c->model_column() && $this->model?->model_slug()) {
             $model_slug = $this->model->model_slug();
-            $model_singular = $this->model->model_singular();
-            $model_slug_plural = $this->model->model_slug_plural();
-            $model_variable = Str::of($this->model->model_singular())->snake()->toString();
-            $model_variable_plural = Str::of($this->model->model_plural())->snake()->toString();
+            $model_singular = $this->model->model_label();
+            $model_slug_plural = $this->model->model_slugs();
+            $model_variable = $this->model->model_variable();
+            $model_variable_plural = $this->model->model_variables();
 
             $this->c->setOptions([
-                'model_column' => Str::of($this->model->model_slug())->replace('-', '_')->toString(),
+                'model_column' => $model_variable,
                 'model_singular' => $model_singular,
                 'model_slug' => $model_slug,
                 'model_slug_plural' => $model_slug_plural,
