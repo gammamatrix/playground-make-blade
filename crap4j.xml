@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-13 17:38:52</timestamp>
+  <timestamp>2026-09-23 19:50:51</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>42</methodCount>
     <crapMethodCount>1</crapMethodCount>
     <crapLoad>7</crapLoad>
-    <totalCrap>546.58</totalCrap>
+    <totalCrap>541.85</totalCrap>
     <crapMethodPercent>2.38</crapMethodPercent>
   </stats>
   <methods>
@@ -193,8 +193,8 @@
       <methodName>build_index_blade_section</methodName>
       <methodSignature>build_index_blade_section(Model $model): void</methodSignature>
       <fullMethod>build_index_blade_section(Model $model): void</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -347,9 +347,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>38.77</crap>
+      <crap>38.04</crap>
       <complexity>19</complexity>
-      <coverage>62.03</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
