@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-23 19:50:51</timestamp>
+  <timestamp>2026-10-02 00:22:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>42</methodCount>
-    <crapMethodCount>1</crapMethodCount>
-    <crapLoad>7</crapLoad>
-    <totalCrap>541.85</totalCrap>
-    <crapMethodPercent>2.38</crapMethodPercent>
+    <crapMethodCount>3</crapMethodCount>
+    <crapLoad>24</crapLoad>
+    <totalCrap>576.54</totalCrap>
+    <crapMethodPercent>7.14</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -160,10 +160,10 @@
       <methodName>create_playground_resources</methodName>
       <methodSignature>create_playground_resources(): void</methodSignature>
       <fullMethod>create_playground_resources(): void</fullMethod>
-      <crap>46.55</crap>
-      <complexity>7</complexity>
-      <coverage>6.9</coverage>
-      <crapLoad>0</crapLoad>
+      <crap>61.91</crap>
+      <complexity>8</complexity>
+      <coverage>5.56</coverage>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Blade\Building</package>
@@ -347,10 +347,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>38.04</crap>
+      <crap>57.37</crap>
       <complexity>19</complexity>
-      <coverage>62.5</coverage>
-      <crapLoad>0</crapLoad>
+      <coverage>52.63</coverage>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Make\Blade\Console\Commands</package>
