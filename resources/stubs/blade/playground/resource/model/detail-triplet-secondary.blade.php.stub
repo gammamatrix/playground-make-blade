@@ -1,0 +1,60 @@
+@php /** @var {{model_fqdn}} $secondaryModel */ @endphp
+@foreach ($data->children()->where('active', true)->get() as $secondaryModel)
+    <div class="card mb-3">
+        <div class="card-header">
+            <div
+                class="btn-group float-end"
+                role="group"
+                aria-label="Basic mixed styles example"
+            >
+                <a
+                    href="{{ route(sprintf('%1$s.patch', $packageInfo->model_route()), [$packageInfo->model_route_param() => $secondaryModel->id]) }}"
+                    type="button"
+                    class="btn btn-danger"
+                    >View</a
+                >
+                <button type="button" class="btn btn-warning">Middle</button>
+                <button type="button" class="btn btn-success">Right</button>
+            </div>
+            <h2>{{ $secondaryModel->labelOrTitle }}</h2>
+        </div>
+        <div class="card-body">
+            @php /** @var {{model_fqdn}} $tertiaryModel */ @endphp
+            @foreach ($secondaryModel->children()->where('active', true)->get() as $tertiaryModel)
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h3>{{ $tertiaryModel->labelOrTitle }}</h3>
+                    </div>
+                    <div class="card-body"></div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Last completed:
+                            <time
+                                datetime="{{$tertiaryModel->created_at}}"
+                                >{{$tertiaryModel->created_at}}</time
+                            >
+                        </li>
+                        <li class="list-group-item">
+                            Due at:
+                            <time
+                                datetime="{{$tertiaryModel->created_at}}"
+                                >{{$tertiaryModel->created_at}}</time
+                            >
+                        </li>
+                        <li class="list-group-item">
+                            @foreach ($tertiaryModel->tags()->get() as $tag)
+                                <span class="badge text-bg-secondary">
+                                    {{$tag->labelOrTitle}}
+                                    @if (!empty($tag->icon))
+                                        <span class="{{$tag->icon}}"></span>
+                                    @endif
+                                </span>
+                            @endforeach
+                        </li>
+                    </ul>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+@endforeach

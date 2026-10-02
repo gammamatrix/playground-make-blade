@@ -217,6 +217,11 @@ class BladeMakeCommand extends GeneratorCommand
             $model_slug = $this->model->model_slug();
             $model_singular = $this->model->model_label();
             $model_slug_plural = $this->model->model_slugs();
+            $model_kebab = $this->model->model_kebab();
+            $model_kebabs = $this->model->model_kebabs();
+            $model_snake = $this->model->model_snake();
+            $model_snakes = $this->model->model_snakes();
+            $model_route_param = $this->model->model_route_param();
             $model_variable = $this->model->model_variable();
             $model_variable_plural = $this->model->model_variables();
 
@@ -225,16 +230,26 @@ class BladeMakeCommand extends GeneratorCommand
                 'model_singular' => $model_singular,
                 'model_slug' => $model_slug,
                 'model_slug_plural' => $model_slug_plural,
+                'model_kebab' => $model_kebab,
+                'model_kebabs' => $model_kebabs,
                 'model_label' => $model_singular,
+                'model_snake' => $model_snake,
+                'model_snakes' => $model_snakes,
+                'model_route_param' => $model_route_param,
                 'model_variable' => $model_variable,
                 'model_variable_plural' => $model_variable_plural,
             ]);
             $this->searches['model_fqdn'] = $this->parseClassInput($this->model->fqdn());
             $this->searches['model_column'] = $this->c->model_column();
+            $this->searches['model_kebab'] = $model_kebab;
+            $this->searches['model_kebabs'] = $model_kebabs;
+            $this->searches['model_label'] = $model_singular;
             $this->searches['model_singular'] = $model_singular;
+            $this->searches['model_route_param'] = $model_route_param;
+            $this->searches['model_snake'] = $model_snake;
+            $this->searches['model_snakes'] = $model_snakes;
             $this->searches['model_slug'] = $model_slug;
             $this->searches['model_slug_plural'] = $model_slug_plural;
-            $this->searches['model_label'] = $model_singular;
             $this->searches['model_variable'] = $model_variable;
             $this->searches['model_variable_plural'] = $model_variable_plural;
         }
@@ -282,7 +297,7 @@ class BladeMakeCommand extends GeneratorCommand
      */
     protected function qualifyClass($name): string
     {
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,
@@ -339,7 +354,7 @@ class BladeMakeCommand extends GeneratorCommand
             return $this->return_status;
         }
 
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
 
         if ($type === 'playground-resource') {
             $this->create_playground_resources();
@@ -351,7 +366,7 @@ class BladeMakeCommand extends GeneratorCommand
 
         $this->saveConfiguration();
 
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,
         //     '$this->c' => $this->c,
@@ -368,7 +383,7 @@ class BladeMakeCommand extends GeneratorCommand
     {
         $blade = 'blade/template.blade.php.stub';
 
-        $type = $this->getConfigurationType();
+        $type = $this->c->type();
 
         if ($type === 'site') {
             $blade = 'blade/playground/site.blade.php.stub';

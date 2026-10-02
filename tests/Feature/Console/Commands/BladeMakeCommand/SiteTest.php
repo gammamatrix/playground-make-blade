@@ -49,7 +49,7 @@ class SiteTest extends TestCase
 
     public function test_command_make_site_blade_with_force_and_without_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --force --type site';
+        $command = 'playground:make:blade testing --force --type site --package acme';
 
         /**
          * @var PendingCommand $result
@@ -60,7 +60,7 @@ class SiteTest extends TestCase
 
     public function test_command_make_site_blade_with_force_and_with_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --skeleton --force --type site';
+        $command = 'playground:make:blade testing --skeleton --force --type site --package acme';
 
         /**
          * @var PendingCommand $result
@@ -99,7 +99,7 @@ class SiteTest extends TestCase
 
     public function test_command_make_playground_blade_with_force_and_without_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --force --type playground';
+        $command = 'playground:make:blade testing --force --type playground --package acme';
 
         /**
          * @var PendingCommand $result
@@ -110,7 +110,7 @@ class SiteTest extends TestCase
 
     public function test_command_make_playground_blade_with_force_and_with_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --skeleton --force --type playground';
+        $command = 'playground:make:blade testing --skeleton --force --type playground --package acme';
 
         /**
          * @var PendingCommand $result

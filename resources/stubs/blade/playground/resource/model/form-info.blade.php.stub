@@ -35,7 +35,7 @@
     />
 
     <x-playground::forms.column
-        column="{{model_column}}_type"
+        column="{{model_snake}}_type"
         label="{{model_label}} Type"
         :rules="['maxlength' => 255]"
     />

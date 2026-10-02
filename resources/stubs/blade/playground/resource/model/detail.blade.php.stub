@@ -15,10 +15,10 @@ if (
 }
 
 $routePatch = route(sprintf('%1$s.patch', $packageInfo->model_route()), [
-    $packageInfo->model_variable() => $data->getAttributeValue("id"),
+    $packageInfo->model_route_param() => $data->getAttributeValue("id"),
 ]);
 $routeShow = route(sprintf('%1$s.show', $packageInfo->model_route()), [
-    $packageInfo->model_variable() => $data->getAttributeValue("id"),
+    $packageInfo->model_route_param() => $data->getAttributeValue("id"),
 ]);
 
 $flags = [{{detail_flags}}];
@@ -49,7 +49,7 @@ $flags = [{{detail_flags}}];
         <div class="col-sm-6 col-md-4 mb-3">
             @include("{{package}}::io/manage-parent")
         </div>
-        @if (config("playground-cms-resource.matrix.enabled"))
+        @if (config("{{package}}.matrix.enabled"))
             <div class="col-sm-6 col-md-4 mb-3">
                 @include("{{package}}::io/manage-matrix")
             </div>

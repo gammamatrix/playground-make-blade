@@ -1,0 +1,121 @@
+<?php
+$packageInfo =
+    ! empty($meta) && is_array($meta) && ! empty($meta["info"])
+        ? $meta["info"]
+        : null;
+$data = $data ?? null;
+if (
+    ! ($packageInfo instanceof \Playground\PackageInfo) ||
+    ! ($data instanceof \Illuminate\Database\Eloquent\Model)
+) {
+    throw new RuntimeException(
+        "Expecting data and package info for resources/views/{{model_slug}}/detail.blade.php",
+        500,
+    );
+}
+
+$routePatch = route(sprintf('%1$s.patch', $packageInfo->model_route()), [
+    $packageInfo->model_route_param() => $data->getAttributeValue("id"),
+]);
+$routeShow = route(sprintf('%1$s.show', $packageInfo->model_route()), [
+    $packageInfo->model_route_param() => $data->getAttributeValue("id"),
+]);
+
+$flags = [{{detail_flags}}];
+
+$withSecondaryTableColumns = [
+    "label" => [
+        "linkType" => "id",
+//        "linkRoute" => sprintf(
+//            '%1$s.show',
+//            $packageInfo->model_route(),
+//        ),
+        "label" => "Label",
+        "filter" => "id",
+    ],
+    "slug" => [
+        "hide-sm" => true,
+        // 'linkType' => 'slug',
+//        "linkRoute" => sprintf(
+//            '%1$s.slug',
+//            $packageInfo->model_route(),
+//        ),
+        "label" => "Slug",
+    ],
+    "active" => [
+        "hide-sm" => true,
+        "flag" => true,
+        "label" => "Active",
+        "onTrueClass" => "fas fa-check text-success",
+    ],
+];
+
+/**
+ * @var array<string, mixed> $meta
+ */
+$meta = empty($meta) || ! is_array($meta) ? [] : $meta;
+$withPrivilege = \Playground\Auth\Facades\Can::withPrivilege($meta);
+
+$user = \Illuminate\Support\Facades\Auth::user();
+
+$withCreate = \Playground\Auth\Facades\Can::access($user, [
+    "allow" => false,
+    "any" => true,
+    "privilege" => $withPrivilege . ":create",
+    "roles" => ["admin", "manager"],
+])->allowed();
+
+$routeEdit = sprintf('%1$s.edit', $packageInfo->model_route());
+$routeDelete = sprintf('%1$s.destroy', $packageInfo->model_route());
+$routeRestore = sprintf('%1$s.restore', $packageInfo->model_route());
+$routeShow = sprintf('%1$s.show', $packageInfo->model_route());
+$routeUnlock = sprintf('%1$s.unlock', $packageInfo->model_route());
+?>
+
+@extends(
+    "playground::layouts.resource.detail",
+    [
+        "withInfo" => false,
+        "withAccordion" => false,
+        "withCard" => false,
+    ]
+)
+
+@section("detail-information-flags")
+    @include("playground::layouts.resource.detail-flags")
+@endsection
+
+@section("detail-card-body-header")
+@endsection
+
+@section ("detail-accordion-body-header")
+@endsection
+
+@section ("detail-accordion-body")
+    <div class="row mb-3">
+        <div class="col-sm-6 col-md-4 mb-3">
+            @include ("{{package}}::io/manage-owner")
+        </div>
+        <div class="col-sm-6 col-md-4 mb-3">
+            @include ("{{package}}::io/manage-parent")
+        </div>
+        @if (config("{{package}}.matrix.enabled"))
+        <div class="col-sm-6 col-md-4 mb-3">
+            @include ("{{package}}::io/manage-matrix")
+        </div>
+        @endif
+    </div>
+@endsection
+
+@section ("section-secondary")
+    <h1>
+        {{ $data->title }}
+        @if (!empty($data->label) && $data->title !== $data->label) ({{ $data->label }})@endif
+    </h1>
+
+    @if ($data->{{model_snake}}_type === "primary")
+        @include ("{{package}}::{{model_kebab}}/detail-secondary")
+    @elseif ($data->{{model_snake}}_type === "secondary")
+        @include ("{{package}}::{{model_kebab}}/detail-tertiary")
+    @endif
+@endsection

@@ -44,7 +44,16 @@ trait BuildModel
          */
         $blades = [];
 
-        $blades['detail.blade.php'] = 'blade/playground/resource/model/detail.blade.php.stub';
+        $model_fqdn = $this->model?->fqdn() ?? '';
+        if (in_array($model_fqdn, [
+            'Playground/Task/Models/Task',
+        ])) {
+            $blades['detail.blade.php'] = 'blade/playground/resource/model/detail-triplet.blade.php.stub';
+            $blades['detail-secondary.blade.php'] = 'blade/playground/resource/model/detail-triplet-secondary.blade.php.stub';
+            $blades['detail-tertiary.blade.php'] = 'blade/playground/resource/model/detail-triplet-tertiary.blade.php.stub';
+        } else {
+            $blades['detail.blade.php'] = 'blade/playground/resource/model/detail.blade.php.stub';
+        }
         if ($revision) {
             $blades['form.blade.php'] = 'blade/playground/resource/model/form-with-revision.blade.php.stub';
         } else {

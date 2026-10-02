@@ -65,7 +65,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_blade_with_force_and_without_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --force --type playground-resource';
+        $command = 'playground:make:blade testing --force --type playground-resource --package acme';
 
         /**
          * @var PendingCommand $result
@@ -76,7 +76,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_blade_with_force_and_with_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --skeleton --force --type playground-resource';
+        $command = 'playground:make:blade testing --skeleton --force --type playground-resource --package acme';
 
         /**
          * @var PendingCommand $result
@@ -115,7 +115,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_index_blade_with_force_and_without_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --force --type playground-resource-index';
+        $command = 'playground:make:blade testing --force --type playground-resource-index --package acme';
 
         /**
          * @var PendingCommand $result
@@ -126,7 +126,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_index_blade_with_force_and_with_skeleton_without_file(): void
     {
-        $command = 'playground:make:blade testing --skeleton --force --type playground-resource-index';
+        $command = 'playground:make:blade testing --skeleton --force --type playground-resource-index --package acme';
 
         /**
          * @var PendingCommand $result
